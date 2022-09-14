@@ -1,3 +1,13 @@
+// beforeEach('open application',()=>{
+    
+//     cy.visit('/')
+// })
+
+before('open application',()=>{
+    
+         cy.visit('/')
+     })
+
 function selectGroupMenuItem(groupName){
 
     cy.contains('a', groupName).then(menu=>{
@@ -24,6 +34,16 @@ export class NavigationPage{
         selectGroupMenuItem('Forms')
         cy.contains('Datepicker').click()
 
+    }
+
+    AccordionPage(){
+        selectGroupMenuItem('Layout')
+        cy.contains('Accordion').click()
+    }
+
+    AuthPage(){
+        selectGroupMenuItem('Auth')
+        cy.contains('Register').click()
     }
 
 }

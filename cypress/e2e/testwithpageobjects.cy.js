@@ -7,10 +7,12 @@ describe('Test with page objects',()=>{
         cy.visit('/')
     })
 
-    it('verify nagivation across the pages',()=>{
+    it('verify navigation across the pages',()=>{
 
         NavigateTo.FormsLayoutPage()
         NavigateTo.DatePickerPage()
+        NavigateTo.AccordionPage()
+        //NavigateTo.AccordionPage()
     })
 
 })
