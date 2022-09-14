@@ -1,10 +1,13 @@
 /// <reference types="cypress" />
 
+const credentials = { 'Full Name': 'Ali Ahmad','Email Address': 'aliaurangzaib03@gmail.com','Password':'testing123' }
+
 describe('Json Objects',()=>{
 
     it('Json Objects',()=>{
         //cy.openHomePage()
 
+        
         const simpleobject = {"key": "value","key2": "value2","key3": "value3"}
 
         const simpleArrayofValues = ["one", "two", "three"]

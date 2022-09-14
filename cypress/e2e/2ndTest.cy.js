@@ -1,6 +1,13 @@
 /// <reference types="cypress" />
-//const { Content } = require("@angular/compiler/src/render3/r3_ast")
+
 const { onNavigationPage, NavigateTo } = require("../support/page_objects/navigationPage")
+const credentials = {
+    'Full Name': 'Ali Ahmad',
+    'Email Address': 'aliaurangzaib03@gmail.com',
+    'Password': 'testing123'
+}
+
+// info: Logout from the default account
 
 describe('Logout from the default account', () => {
 
@@ -11,28 +18,39 @@ describe('Logout from the default account', () => {
 
 })
 
+// info: Register new account
+
 describe('Register New Account', () => {
 
-    it.only('Auth -> Register',()=>{
+    it('Auth -> Register', () => {
         NavigateTo.AuthPage()
+        cy.get('[placeholder="Full name"]').type(credentials["Full Name"])
+        cy.get('[placeholder="Email address"]').type(credentials["Email Address"])
+        cy.get('[placeholder="Password"]').type(credentials.Password)
+        cy.get('[placeholder="Confirm Password"]').type(credentials.Password)
+        cy.get('[class="custom-checkbox"]').click()
 
+        //Todo: Complete this code from here
+        //Error: Fix this
+        //cy.contains('_ngcontent-wih-c22','Register')
     })
 
 })
 
-/**
- * ! Go to layouts and click on Accordion and then toggle it
- */
+// info: Go to layouts and click on Accordion and then toggle it & Verifying it
+
 
 describe('Toggle accordion by button', () => {
-
+    
     it('Layout -> Accordion', () => {
-        /**
-         * info: automated the process for visiting the layout->Accordion
-         * cy.visit('/')
-         * cy.contains('Layout').click()
-         * cy.contains('Accordion').click()
-         */
+
+        cy.visit('/')
+
+         // comment: automated the process for visiting the layout->Accordion
+         //cy.visit('/')
+         //cy.contains('Layout').click()
+         //cy.contains('Accordion').click()
+    
         NavigateTo.AccordionPage()
         cy.contains('Toggle First Item').click()
         //cy.wait(3000)
